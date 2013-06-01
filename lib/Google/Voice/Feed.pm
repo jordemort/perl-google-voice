@@ -67,7 +67,7 @@ sub latest { return (shift->messages)[-1] }
 sub delete {
     my $self = shift;
 
-    my $json = $self->ua->post_form(
+    my $json = $self->ua->post(
         'https://www.google.com/voice/inbox/deleteMessages' => {
             messages => $self->id,
             trash    => 1,

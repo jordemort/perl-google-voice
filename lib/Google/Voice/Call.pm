@@ -22,7 +22,7 @@ sub cancel {
     my $self = shift;
     my ($from, $to) = @_;
 
-    my $json = $self->ua->post_form(
+    my $json = $self->ua->post(
         'https://www.google.com/voice/call/cancel/' => {
             forwardingNumber => undef,
             outgoingNumber   => undef,

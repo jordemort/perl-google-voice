@@ -1,3 +1,6 @@
+0.06 2013-6-01
+  - Changed deprecidated post_form Mojo::UserAgest calls
+
 0.05 2011-10-08
   - Changed max_redirects to 6 (Graham Forest, discogestalt)
   - Feed message name more robust (Graham Forest, tempire)

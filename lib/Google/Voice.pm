@@ -38,7 +38,7 @@ sub login {
 
     my $galx = $el->attrs->{value} if $el;
 
-    $c->post_form(
+    $c->post(
         'https://accounts.google.com/ServiceLogin',
         {   Email  => $user,
             Passwd => $pass,
@@ -64,7 +64,7 @@ sub send_sms {
     my $c    = $self->ua;
     my ($phone, $content) = @_;
 
-    my $json = $c->post_form(
+    my $json = $c->post(
         'https://www.google.com/voice/b/0/sms/send',
         {   id          => undef,
             phoneNumber => $phone,
@@ -115,7 +115,7 @@ sub call {
     my $self = shift;
     my ($from, $to) = @_;
 
-    my $json = $self->ua->post_form(
+    my $json = $self->ua->post(
         'https://www.google.com/voice/call/connect' => {
             forwardingNumber => $from,
             outgoingNumber   => $to,
