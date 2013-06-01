@@ -23,7 +23,9 @@ sub cancel {
     my ($from, $to) = @_;
 
     my $json = $self->ua->post(
-        'https://www.google.com/voice/call/cancel/' => {
+        'https://www.google.com/voice/call/cancel/' => 
+	{DNT => 1} =>
+	form => {
             forwardingNumber => undef,
             outgoingNumber   => undef,
             cancelType       => 'C2C',

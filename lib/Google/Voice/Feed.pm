@@ -68,7 +68,9 @@ sub delete {
     my $self = shift;
 
     my $json = $self->ua->post(
-        'https://www.google.com/voice/inbox/deleteMessages' => {
+        'https://www.google.com/voice/inbox/deleteMessages' => 
+	{DNT => 1} =>
+	post => {
             messages => $self->id,
             trash    => 1,
             _rnr_se  => $self->rnr_se
